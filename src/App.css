@@ -3,12 +3,16 @@
 	border: 2px solid black;
 	display: flex;
 	visibility: visible;
+	width: 250px;
+	left: 0%;
+	top: 25px;
+	position: fixed;
+	height: 90%;
 }
 
 .hidden {
 	animation-name: fadeOutOpacity;
-	animation-duration: 0.15s;
-	opacity: 0;
+	animation-duration: 0.5s;
 }
 
 .hidden-did-fade-out {
@@ -17,28 +21,25 @@
 
 .visible {
 	animation-name: fadeInOpacity;
-	animation-duration: 0.15s;
-	opacity: 1;
+	animation-duration: 1s;
 }
 
 @keyframes fadeInOpacity {
 	0% {
-		opacity: 0;
-		scale: 0.8;
+		left: -250px;
 	}
+
 	100% {
-		opacity: 1;
-		scale: 1;
+		left: 0;
 	}
 }
 
 @keyframes fadeOutOpacity {
 	0% {
 		opacity: 1;
-		scale: 1;
+		left: 0;
 	}
 	100% {
-		opacity: 0;
-		scale: 0.8;
+		left: -250px;
 	}
 }
