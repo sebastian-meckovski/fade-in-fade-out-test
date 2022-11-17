@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export const App = () => {
+	const [visible, setVisible] = useState(false);
+	const divRef = useRef(false);
+
+	useEffect(() => {
+		divRef.current.className = 'hidden-did-fade-out';
+	}, []);
+
+	function onAnimationEnd(e) {
+		if (e.animationName === 'fadeOutOpacity') {
+			e.target.className = 'hidden-did-fade-out';
+		}
+	}
+
+	return (
+		<div>
+			<button
+				onClick={() => {
+					setVisible(!visible);
+				}}
+			>
+				Show/HIde
+			</button>
+			<div ref={divRef} onAnimationEnd={onAnimationEnd} className={visible ? 'visible' : 'hidden'}>
+				I'm a div
+			</div>
+		</div>
+	);
+};
 
 export default App;
