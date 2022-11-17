@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import './App.css';
 
 export const App = () => {
 	const [visible, setVisible] = useState(false);
 	const divRef = useRef(false);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		divRef.current.className = 'hidden-did-fade-out';
 	}, []);
 
